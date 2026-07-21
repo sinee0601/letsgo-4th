@@ -3,6 +3,7 @@ package com.travel.myscheduleservice;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -10,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -28,6 +30,7 @@ public class MyScheduleEntity {
     private String todoDetails;
     private boolean isShared;
     private String userEncodedId;
-    @OneToMany(mappedBy = "MySchedules", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Builder.Default
+    @OneToMany(mappedBy = "mySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VisitItemEntity> visitItems = new ArrayList<>();
 }

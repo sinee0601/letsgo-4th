@@ -3,15 +3,14 @@ package com.travel.userservice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface UserJpaRepository extends JpaRepository<UsersEntity, Long> {
+public interface UserJpaRepository extends JpaRepository<UserEntity, String> {
 
+    UserEntity findByUserId(String userId);
 
-    UsersEntity findByUserID(String userID);
+    UserEntity findByNameAndEmail(String name, String email);
 
-    UsersEntity findByNameAndEmail(String name, String email);
+    UserEntity findByEmail(String email);
 
-    UsersEntity findByEmail(String email);
-
-    List<UsersEntity> findByUserIDContainingOrNameContaining(String userID, String name);
+    List<UserEntity> findByUserIdContainingOrNameContaining(String userId, String name);
 
 }

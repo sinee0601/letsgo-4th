@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/user")
@@ -17,7 +18,7 @@ public class UserRestController {
     private final UserService userService;
 
     @PostMapping("/signUp")
-    public ResponseEntity<Map<String, Object>> signUp(UserRequest userRequest) {
+    public ResponseEntity<Map<String, Object>> signUp(@RequestBody UserRequest userRequest) {
         String userId = userRequest.getUserId();
         String name = userRequest.getName();
         String email = userRequest.getEmail();

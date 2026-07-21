@@ -3,18 +3,21 @@ package com.travel.userservice;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 
-
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @Entity
 @Table(name = "users")
-public class UsersEntity {
+public class UserEntity {
     @Id
     private String userEncodedId;
     @Column(unique = true, nullable = true)
@@ -29,7 +32,7 @@ public class UsersEntity {
     private String role;
     @CreationTimestamp
     @Column(updatable = false)
-    private Timestamp createdAt;
+    private LocalDateTime createdAt;
     @Builder.Default
     @Column(nullable = false, columnDefinition = "integer default 0")
     private int warningCount = 0;
