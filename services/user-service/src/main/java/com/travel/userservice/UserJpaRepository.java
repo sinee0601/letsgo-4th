@@ -1,16 +1,17 @@
-package com.travel.letsgospringboot.user.repository;
+package com.travel.userservice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
-public interface UserJpaRepository extends JpaRepository<JpaUsers, Long> {
-    //로그인
-    JpaUsers findByUserID(String userID);
-    //아이디 찾기
-    JpaUsers findByNameAndEmail(String name, String email);
+public interface UserJpaRepository extends JpaRepository<UsersEntity, Long> {
 
-    JpaUsers findByEmail(String email);
 
-    List<JpaUsers> findByUserIDContainingOrNameContaining(String userID, String name);
+    UsersEntity findByUserID(String userID);
+
+    UsersEntity findByNameAndEmail(String name, String email);
+
+    UsersEntity findByEmail(String email);
+
+    List<UsersEntity> findByUserIDContainingOrNameContaining(String userID, String name);
 
 }
