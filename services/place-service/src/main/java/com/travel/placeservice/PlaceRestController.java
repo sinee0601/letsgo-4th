@@ -15,17 +15,17 @@ public class PlaceRestController {
 
     private final PlaceService placeService;
 
-    @GetMapping("/leisure")
+    @GetMapping("/leisureList")
     public List<PlaceVO> getLeisureList(){
         return placeService.searchPlaces("LEISURE");
     }
 
-    @GetMapping("/restaurant")
+    @GetMapping("/restaurantList")
     public List<PlaceVO> getRestaurantList(){
         return placeService.searchPlaces("RESTAURANT");
     }
 
-    @GetMapping("/stay")
+    @GetMapping("/stayList")
     public List<PlaceVO> getStayList(){
         return placeService.searchPlaces("STAY");
     }

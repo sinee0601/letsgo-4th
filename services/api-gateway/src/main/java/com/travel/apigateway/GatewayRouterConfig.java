@@ -33,10 +33,7 @@ public class GatewayRouterConfig {
     @Bean
     public RouterFunction<ServerResponse> placeServiceRoutes() {
         return route("place-service")
-                .route(path("/list/**"), http())
-                .route(path("/leisureListAjax"), http())
-                .route(path("/restaurantListAjax"), http())
-                .route(path("/stayListAjax"), http())
+                .route(path("/place/**"), http())
                 .filter(lb("place-service"))
                 .build();
     }

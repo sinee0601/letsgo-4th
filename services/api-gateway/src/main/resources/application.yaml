@@ -9,3 +9,5 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+jwt:
+  public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx1H+xHGxKVBIV6U8GoCvtKtIa0HOT/MPiWrf4cMdJHor5BfiiZpjY/925Sa3DxZtzcTp9Dlnks+7G75LjTItCceywQ/3O8U/ohH0j/wm6dkRM9H/Tstu0MJwdwHXgou5C4lMDGtoYB5F/VTRX+8Y86r9Ooimw+/NOkD43wYufjUsaMG97CsihpC+VhQnuBX26sz8rC1lyfbfZDx/Z3W+1Jca/uFubE5TZIGpPNqXGqd8b0h4BtgQnfG4Bfvx4maiAUZLaLx7DJ5oIbsNI6HwxhuRX7kJejSO+i5vdwGkjCilYzh0oxuuAETnRFcgxeF0zRTj5/aHiBzNWaQBbsoC1QIDAQAB
