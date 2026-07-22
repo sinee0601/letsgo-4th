@@ -1,6 +1,8 @@
 package com.travel.myscheduleservice;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,12 +18,19 @@ public class MyScheduleRestController {
 
     @PostMapping
     public boolean addMySchedule(@RequestBody AddScheduleRequest request) {
-        return myScheduleService.addMySchedule(request);
+        return myScheduleService.addMySchedule(request.toVo());
     }
 
     @PostMapping("/{scheduleId}/visit")
     public boolean addVisitItem(@PathVariable String scheduleId,
-                                @RequestBody VisitItemRequest request) {
-        return myScheduleService.addVisitItem(scheduleId, request);
+            @RequestBody VisitItemRequest request) {
+        return myScheduleService.addVisitItem(request.toVo(scheduleId));
+    }
+
+    @GetMapping("/{scheduleId}/detail")
+    public ScheduleDetailResponse getScheduleDetail(@PathVariable String scheduleId) {
+        return new ScheduleDetailResponse(
+                myScheduleService.getScheduleDetail(scheduleId),
+                myScheduleService.getScheduleRoute(scheduleId));
     }
 }

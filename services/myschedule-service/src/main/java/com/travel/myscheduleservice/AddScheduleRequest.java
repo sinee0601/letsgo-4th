@@ -5,4 +5,7 @@ public record AddScheduleRequest(
         String title,
         String userEncodedId
 ) {
+    public AddScheduleVO toVo() {
+        return new AddScheduleVO(scheduleId, title, userEncodedId);
+    }
 }

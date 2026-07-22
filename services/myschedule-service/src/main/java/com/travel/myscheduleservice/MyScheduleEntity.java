@@ -32,5 +32,6 @@ public class MyScheduleEntity {
     private String userEncodedId;
     @Builder.Default
     @OneToMany(mappedBy = "mySchedule", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("visitOrder ASC")
     private List<VisitItemEntity> visitItems = new ArrayList<>();
 }
